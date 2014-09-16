@@ -42,6 +42,8 @@ namespace MakeMyTrip {
         
         private tbRoomsDataTable tabletbRooms;
         
+        private _Flight_INNERJOIN_FlightBookingDataTable _tableFlight_INNERJOIN_FlightBooking;
+        
         private global::System.Data.DataRelation relationDestination_FK2;
         
         private global::System.Data.DataRelation relationSource_FK1;
@@ -59,6 +61,14 @@ namespace MakeMyTrip {
         private global::System.Data.DataRelation relationFK_tbPassengersList_tbFlight;
         
         private global::System.Data.DataRelation relationFK_tbRooms_tbHotel;
+        
+        private global::System.Data.DataRelation relationFK_tbFlightBooking_tbFlight1;
+        
+        private global::System.Data.DataRelation relationFK_tbPassengersList_tbFlight1;
+        
+        private global::System.Data.DataRelation relationDestination_FK21;
+        
+        private global::System.Data.DataRelation relationSource_FK11;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -114,6 +124,9 @@ namespace MakeMyTrip {
                 }
                 if ((ds.Tables["tbRooms"] != null)) {
                     base.Tables.Add(new tbRoomsDataTable(ds.Tables["tbRooms"]));
+                }
+                if ((ds.Tables["Flight-INNERJOIN-FlightBooking"] != null)) {
+                    base.Tables.Add(new _Flight_INNERJOIN_FlightBookingDataTable(ds.Tables["Flight-INNERJOIN-FlightBooking"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -225,6 +238,16 @@ namespace MakeMyTrip {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public _Flight_INNERJOIN_FlightBookingDataTable _Flight_INNERJOIN_FlightBooking {
+            get {
+                return this._tableFlight_INNERJOIN_FlightBooking;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -317,6 +340,9 @@ namespace MakeMyTrip {
                 if ((ds.Tables["tbRooms"] != null)) {
                     base.Tables.Add(new tbRoomsDataTable(ds.Tables["tbRooms"]));
                 }
+                if ((ds.Tables["Flight-INNERJOIN-FlightBooking"] != null)) {
+                    base.Tables.Add(new _Flight_INNERJOIN_FlightBookingDataTable(ds.Tables["Flight-INNERJOIN-FlightBooking"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -404,6 +430,12 @@ namespace MakeMyTrip {
                     this.tabletbRooms.InitVars();
                 }
             }
+            this._tableFlight_INNERJOIN_FlightBooking = ((_Flight_INNERJOIN_FlightBookingDataTable)(base.Tables["Flight-INNERJOIN-FlightBooking"]));
+            if ((initTable == true)) {
+                if ((this._tableFlight_INNERJOIN_FlightBooking != null)) {
+                    this._tableFlight_INNERJOIN_FlightBooking.InitVars();
+                }
+            }
             this.relationDestination_FK2 = this.Relations["Destination_FK2"];
             this.relationSource_FK1 = this.Relations["Source_FK1"];
             this.relationFK_tbFlightBooking_tbCustomer = this.Relations["FK_tbFlightBooking_tbCustomer"];
@@ -413,6 +445,10 @@ namespace MakeMyTrip {
             this.relationFK_tbHotelBooking_tbRooms = this.Relations["FK_tbHotelBooking_tbRooms"];
             this.relationFK_tbPassengersList_tbFlight = this.Relations["FK_tbPassengersList_tbFlight"];
             this.relationFK_tbRooms_tbHotel = this.Relations["FK_tbRooms_tbHotel"];
+            this.relationFK_tbFlightBooking_tbFlight1 = this.Relations["FK_tbFlightBooking_tbFlight1"];
+            this.relationFK_tbPassengersList_tbFlight1 = this.Relations["FK_tbPassengersList_tbFlight1"];
+            this.relationDestination_FK21 = this.Relations["Destination_FK21"];
+            this.relationSource_FK11 = this.Relations["Source_FK11"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -441,6 +477,8 @@ namespace MakeMyTrip {
             base.Tables.Add(this.tabletbPassengersList);
             this.tabletbRooms = new tbRoomsDataTable();
             base.Tables.Add(this.tabletbRooms);
+            this._tableFlight_INNERJOIN_FlightBooking = new _Flight_INNERJOIN_FlightBookingDataTable();
+            base.Tables.Add(this._tableFlight_INNERJOIN_FlightBooking);
             this.relationDestination_FK2 = new global::System.Data.DataRelation("Destination_FK2", new global::System.Data.DataColumn[] {
                         this.tabletbCity.CityCodeColumn}, new global::System.Data.DataColumn[] {
                         this.tabletbFlight.DestinationColumn}, false);
@@ -479,6 +517,22 @@ namespace MakeMyTrip {
                         this.tabletbHotel.HotelIDColumn}, new global::System.Data.DataColumn[] {
                         this.tabletbRooms.HotelIDColumn}, false);
             this.Relations.Add(this.relationFK_tbRooms_tbHotel);
+            this.relationFK_tbFlightBooking_tbFlight1 = new global::System.Data.DataRelation("FK_tbFlightBooking_tbFlight1", new global::System.Data.DataColumn[] {
+                        this._tableFlight_INNERJOIN_FlightBooking.FlightNoColumn}, new global::System.Data.DataColumn[] {
+                        this.tabletbFlightBooking.FlightNoColumn}, false);
+            this.Relations.Add(this.relationFK_tbFlightBooking_tbFlight1);
+            this.relationFK_tbPassengersList_tbFlight1 = new global::System.Data.DataRelation("FK_tbPassengersList_tbFlight1", new global::System.Data.DataColumn[] {
+                        this._tableFlight_INNERJOIN_FlightBooking.FlightNoColumn}, new global::System.Data.DataColumn[] {
+                        this.tabletbPassengersList.FlightNoColumn}, false);
+            this.Relations.Add(this.relationFK_tbPassengersList_tbFlight1);
+            this.relationDestination_FK21 = new global::System.Data.DataRelation("Destination_FK21", new global::System.Data.DataColumn[] {
+                        this.tabletbCity.CityCodeColumn}, new global::System.Data.DataColumn[] {
+                        this._tableFlight_INNERJOIN_FlightBooking.DestinationColumn}, false);
+            this.Relations.Add(this.relationDestination_FK21);
+            this.relationSource_FK11 = new global::System.Data.DataRelation("Source_FK11", new global::System.Data.DataColumn[] {
+                        this.tabletbCity.CityCodeColumn}, new global::System.Data.DataColumn[] {
+                        this._tableFlight_INNERJOIN_FlightBooking.SourceColumn}, false);
+            this.Relations.Add(this.relationSource_FK11);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -532,6 +586,12 @@ namespace MakeMyTrip {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializetbRooms() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerialize_Flight_INNERJOIN_FlightBooking() {
             return false;
         }
         
@@ -616,6 +676,9 @@ namespace MakeMyTrip {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void tbRoomsRowChangeEventHandler(object sender, tbRoomsRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void _Flight_INNERJOIN_FlightBookingRowChangeEventHandler(object sender, _Flight_INNERJOIN_FlightBookingRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -3606,6 +3669,440 @@ namespace MakeMyTrip {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class _Flight_INNERJOIN_FlightBookingDataTable : global::System.Data.TypedTableBase<_Flight_INNERJOIN_FlightBookingRow> {
+            
+            private global::System.Data.DataColumn columnFlightNo;
+            
+            private global::System.Data.DataColumn columnAirlinesName;
+            
+            private global::System.Data.DataColumn columnSource;
+            
+            private global::System.Data.DataColumn columnDestination;
+            
+            private global::System.Data.DataColumn columnTotalSeats;
+            
+            private global::System.Data.DataColumn columnAdultFare;
+            
+            private global::System.Data.DataColumn columnChildFare;
+            
+            private global::System.Data.DataColumn columnAirportTax;
+            
+            private global::System.Data.DataColumn columnDepartureTime;
+            
+            private global::System.Data.DataColumn columnArrivalTime;
+            
+            private global::System.Data.DataColumn columnExpr4;
+            
+            private global::System.Data.DataColumn columnDateOfJourney;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _Flight_INNERJOIN_FlightBookingDataTable() {
+                this.TableName = "Flight-INNERJOIN-FlightBooking";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal _Flight_INNERJOIN_FlightBookingDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected _Flight_INNERJOIN_FlightBookingDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FlightNoColumn {
+                get {
+                    return this.columnFlightNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AirlinesNameColumn {
+                get {
+                    return this.columnAirlinesName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SourceColumn {
+                get {
+                    return this.columnSource;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DestinationColumn {
+                get {
+                    return this.columnDestination;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TotalSeatsColumn {
+                get {
+                    return this.columnTotalSeats;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AdultFareColumn {
+                get {
+                    return this.columnAdultFare;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ChildFareColumn {
+                get {
+                    return this.columnChildFare;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AirportTaxColumn {
+                get {
+                    return this.columnAirportTax;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DepartureTimeColumn {
+                get {
+                    return this.columnDepartureTime;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ArrivalTimeColumn {
+                get {
+                    return this.columnArrivalTime;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Expr4Column {
+                get {
+                    return this.columnExpr4;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DateOfJourneyColumn {
+                get {
+                    return this.columnDateOfJourney;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _Flight_INNERJOIN_FlightBookingRow this[int index] {
+                get {
+                    return ((_Flight_INNERJOIN_FlightBookingRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event _Flight_INNERJOIN_FlightBookingRowChangeEventHandler _Flight_INNERJOIN_FlightBookingRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event _Flight_INNERJOIN_FlightBookingRowChangeEventHandler _Flight_INNERJOIN_FlightBookingRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event _Flight_INNERJOIN_FlightBookingRowChangeEventHandler _Flight_INNERJOIN_FlightBookingRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event _Flight_INNERJOIN_FlightBookingRowChangeEventHandler _Flight_INNERJOIN_FlightBookingRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Add_Flight_INNERJOIN_FlightBookingRow(_Flight_INNERJOIN_FlightBookingRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _Flight_INNERJOIN_FlightBookingRow Add_Flight_INNERJOIN_FlightBookingRow(string AirlinesName, tbCityRow parenttbCityRowBySource_FK11, tbCityRow parenttbCityRowByDestination_FK21, int TotalSeats, decimal AdultFare, decimal ChildFare, decimal AirportTax, System.TimeSpan DepartureTime, System.TimeSpan ArrivalTime, int Expr4, System.DateTime DateOfJourney) {
+                _Flight_INNERJOIN_FlightBookingRow row_Flight_INNERJOIN_FlightBookingRow = ((_Flight_INNERJOIN_FlightBookingRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        AirlinesName,
+                        null,
+                        null,
+                        TotalSeats,
+                        AdultFare,
+                        ChildFare,
+                        AirportTax,
+                        DepartureTime,
+                        ArrivalTime,
+                        Expr4,
+                        DateOfJourney};
+                if ((parenttbCityRowBySource_FK11 != null)) {
+                    columnValuesArray[2] = parenttbCityRowBySource_FK11[0];
+                }
+                if ((parenttbCityRowByDestination_FK21 != null)) {
+                    columnValuesArray[3] = parenttbCityRowByDestination_FK21[0];
+                }
+                row_Flight_INNERJOIN_FlightBookingRow.ItemArray = columnValuesArray;
+                this.Rows.Add(row_Flight_INNERJOIN_FlightBookingRow);
+                return row_Flight_INNERJOIN_FlightBookingRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _Flight_INNERJOIN_FlightBookingRow FindByFlightNo(int FlightNo) {
+                return ((_Flight_INNERJOIN_FlightBookingRow)(this.Rows.Find(new object[] {
+                            FlightNo})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                _Flight_INNERJOIN_FlightBookingDataTable cln = ((_Flight_INNERJOIN_FlightBookingDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new _Flight_INNERJOIN_FlightBookingDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnFlightNo = base.Columns["FlightNo"];
+                this.columnAirlinesName = base.Columns["AirlinesName"];
+                this.columnSource = base.Columns["Source"];
+                this.columnDestination = base.Columns["Destination"];
+                this.columnTotalSeats = base.Columns["TotalSeats"];
+                this.columnAdultFare = base.Columns["AdultFare"];
+                this.columnChildFare = base.Columns["ChildFare"];
+                this.columnAirportTax = base.Columns["AirportTax"];
+                this.columnDepartureTime = base.Columns["DepartureTime"];
+                this.columnArrivalTime = base.Columns["ArrivalTime"];
+                this.columnExpr4 = base.Columns["Expr4"];
+                this.columnDateOfJourney = base.Columns["DateOfJourney"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnFlightNo = new global::System.Data.DataColumn("FlightNo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFlightNo);
+                this.columnAirlinesName = new global::System.Data.DataColumn("AirlinesName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAirlinesName);
+                this.columnSource = new global::System.Data.DataColumn("Source", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSource);
+                this.columnDestination = new global::System.Data.DataColumn("Destination", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDestination);
+                this.columnTotalSeats = new global::System.Data.DataColumn("TotalSeats", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalSeats);
+                this.columnAdultFare = new global::System.Data.DataColumn("AdultFare", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAdultFare);
+                this.columnChildFare = new global::System.Data.DataColumn("ChildFare", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnChildFare);
+                this.columnAirportTax = new global::System.Data.DataColumn("AirportTax", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAirportTax);
+                this.columnDepartureTime = new global::System.Data.DataColumn("DepartureTime", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDepartureTime);
+                this.columnArrivalTime = new global::System.Data.DataColumn("ArrivalTime", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnArrivalTime);
+                this.columnExpr4 = new global::System.Data.DataColumn("Expr4", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnExpr4);
+                this.columnDateOfJourney = new global::System.Data.DataColumn("DateOfJourney", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDateOfJourney);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnFlightNo}, true));
+                this.columnFlightNo.AutoIncrement = true;
+                this.columnFlightNo.AutoIncrementSeed = -1;
+                this.columnFlightNo.AutoIncrementStep = -1;
+                this.columnFlightNo.AllowDBNull = false;
+                this.columnFlightNo.ReadOnly = true;
+                this.columnFlightNo.Unique = true;
+                this.columnAirlinesName.AllowDBNull = false;
+                this.columnAirlinesName.MaxLength = 50;
+                this.columnSource.AllowDBNull = false;
+                this.columnSource.MaxLength = 3;
+                this.columnDestination.AllowDBNull = false;
+                this.columnDestination.MaxLength = 3;
+                this.columnTotalSeats.AllowDBNull = false;
+                this.columnAirportTax.AllowDBNull = false;
+                this.columnExpr4.AllowDBNull = false;
+                this.columnDateOfJourney.AllowDBNull = false;
+                this.ExtendedProperties.Add("Generator_TableVarName", "_tableFlight_INNERJOIN_FlightBooking");
+                this.ExtendedProperties.Add("Generator_UserTableName", "Flight-INNERJOIN-FlightBooking");
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _Flight_INNERJOIN_FlightBookingRow New_Flight_INNERJOIN_FlightBookingRow() {
+                return ((_Flight_INNERJOIN_FlightBookingRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new _Flight_INNERJOIN_FlightBookingRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(_Flight_INNERJOIN_FlightBookingRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this._Flight_INNERJOIN_FlightBookingRowChanged != null)) {
+                    this._Flight_INNERJOIN_FlightBookingRowChanged(this, new _Flight_INNERJOIN_FlightBookingRowChangeEvent(((_Flight_INNERJOIN_FlightBookingRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this._Flight_INNERJOIN_FlightBookingRowChanging != null)) {
+                    this._Flight_INNERJOIN_FlightBookingRowChanging(this, new _Flight_INNERJOIN_FlightBookingRowChangeEvent(((_Flight_INNERJOIN_FlightBookingRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this._Flight_INNERJOIN_FlightBookingRowDeleted != null)) {
+                    this._Flight_INNERJOIN_FlightBookingRowDeleted(this, new _Flight_INNERJOIN_FlightBookingRowChangeEvent(((_Flight_INNERJOIN_FlightBookingRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this._Flight_INNERJOIN_FlightBookingRowDeleting != null)) {
+                    this._Flight_INNERJOIN_FlightBookingRowDeleting(this, new _Flight_INNERJOIN_FlightBookingRowChangeEvent(((_Flight_INNERJOIN_FlightBookingRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Remove_Flight_INNERJOIN_FlightBookingRow(_Flight_INNERJOIN_FlightBookingRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DataSet_dbFlightHotel ds = new DataSet_dbFlightHotel();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "_Flight_INNERJOIN_FlightBookingDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class tbCityRow : global::System.Data.DataRow {
@@ -3671,6 +4168,28 @@ namespace MakeMyTrip {
                 }
                 else {
                     return ((tbHotelRow[])(base.GetChildRows(this.Table.ChildRelations["FK_tbHotel_tbCity"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _Flight_INNERJOIN_FlightBookingRow[] _GetFlight_INNERJOIN_FlightBookingRowsByDestination_FK21() {
+                if ((this.Table.ChildRelations["Destination_FK21"] == null)) {
+                    return new _Flight_INNERJOIN_FlightBookingRow[0];
+                }
+                else {
+                    return ((_Flight_INNERJOIN_FlightBookingRow[])(base.GetChildRows(this.Table.ChildRelations["Destination_FK21"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _Flight_INNERJOIN_FlightBookingRow[] _GetFlight_INNERJOIN_FlightBookingRowsBySource_FK11() {
+                if ((this.Table.ChildRelations["Source_FK11"] == null)) {
+                    return new _Flight_INNERJOIN_FlightBookingRow[0];
+                }
+                else {
+                    return ((_Flight_INNERJOIN_FlightBookingRow[])(base.GetChildRows(this.Table.ChildRelations["Source_FK11"])));
                 }
             }
         }
@@ -4136,6 +4655,17 @@ namespace MakeMyTrip {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _Flight_INNERJOIN_FlightBookingRow _Flight_INNERJOIN_FlightBookingRow {
+                get {
+                    return ((_Flight_INNERJOIN_FlightBookingRow)(this.GetParentRow(this.Table.ParentRelations["FK_tbFlightBooking_tbFlight1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_tbFlightBooking_tbFlight1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public tbFlightPaymentRow[] GettbFlightPaymentRows() {
                 if ((this.Table.ChildRelations["FK_tbFlightPayment_tbFlightBooking"] == null)) {
                     return new tbFlightPaymentRow[0];
@@ -4570,6 +5100,17 @@ namespace MakeMyTrip {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _Flight_INNERJOIN_FlightBookingRow _Flight_INNERJOIN_FlightBookingRow {
+                get {
+                    return ((_Flight_INNERJOIN_FlightBookingRow)(this.GetParentRow(this.Table.ParentRelations["FK_tbPassengersList_tbFlight1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_tbPassengersList_tbFlight1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsBookingIDNull() {
                 return this.IsNull(this.tabletbPassengersList.BookingIDColumn);
             }
@@ -4671,6 +5212,269 @@ namespace MakeMyTrip {
                 }
                 else {
                     return ((tbHotelBookingRow[])(base.GetChildRows(this.Table.ChildRelations["FK_tbHotelBooking_tbRooms"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class _Flight_INNERJOIN_FlightBookingRow : global::System.Data.DataRow {
+            
+            private _Flight_INNERJOIN_FlightBookingDataTable _tableFlight_INNERJOIN_FlightBooking;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal _Flight_INNERJOIN_FlightBookingRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this._tableFlight_INNERJOIN_FlightBooking = ((_Flight_INNERJOIN_FlightBookingDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int FlightNo {
+                get {
+                    return ((int)(this[this._tableFlight_INNERJOIN_FlightBooking.FlightNoColumn]));
+                }
+                set {
+                    this[this._tableFlight_INNERJOIN_FlightBooking.FlightNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string AirlinesName {
+                get {
+                    return ((string)(this[this._tableFlight_INNERJOIN_FlightBooking.AirlinesNameColumn]));
+                }
+                set {
+                    this[this._tableFlight_INNERJOIN_FlightBooking.AirlinesNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Source {
+                get {
+                    return ((string)(this[this._tableFlight_INNERJOIN_FlightBooking.SourceColumn]));
+                }
+                set {
+                    this[this._tableFlight_INNERJOIN_FlightBooking.SourceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Destination {
+                get {
+                    return ((string)(this[this._tableFlight_INNERJOIN_FlightBooking.DestinationColumn]));
+                }
+                set {
+                    this[this._tableFlight_INNERJOIN_FlightBooking.DestinationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int TotalSeats {
+                get {
+                    return ((int)(this[this._tableFlight_INNERJOIN_FlightBooking.TotalSeatsColumn]));
+                }
+                set {
+                    this[this._tableFlight_INNERJOIN_FlightBooking.TotalSeatsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal AdultFare {
+                get {
+                    try {
+                        return ((decimal)(this[this._tableFlight_INNERJOIN_FlightBooking.AdultFareColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AdultFare\' in table \'Flight-INNERJOIN-FlightBooking\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this._tableFlight_INNERJOIN_FlightBooking.AdultFareColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal ChildFare {
+                get {
+                    try {
+                        return ((decimal)(this[this._tableFlight_INNERJOIN_FlightBooking.ChildFareColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ChildFare\' in table \'Flight-INNERJOIN-FlightBooking\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this._tableFlight_INNERJOIN_FlightBooking.ChildFareColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal AirportTax {
+                get {
+                    return ((decimal)(this[this._tableFlight_INNERJOIN_FlightBooking.AirportTaxColumn]));
+                }
+                set {
+                    this[this._tableFlight_INNERJOIN_FlightBooking.AirportTaxColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.TimeSpan DepartureTime {
+                get {
+                    try {
+                        return ((global::System.TimeSpan)(this[this._tableFlight_INNERJOIN_FlightBooking.DepartureTimeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DepartureTime\' in table \'Flight-INNERJOIN-FlightBooking\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this._tableFlight_INNERJOIN_FlightBooking.DepartureTimeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.TimeSpan ArrivalTime {
+                get {
+                    try {
+                        return ((global::System.TimeSpan)(this[this._tableFlight_INNERJOIN_FlightBooking.ArrivalTimeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ArrivalTime\' in table \'Flight-INNERJOIN-FlightBooking\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this._tableFlight_INNERJOIN_FlightBooking.ArrivalTimeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Expr4 {
+                get {
+                    return ((int)(this[this._tableFlight_INNERJOIN_FlightBooking.Expr4Column]));
+                }
+                set {
+                    this[this._tableFlight_INNERJOIN_FlightBooking.Expr4Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime DateOfJourney {
+                get {
+                    return ((global::System.DateTime)(this[this._tableFlight_INNERJOIN_FlightBooking.DateOfJourneyColumn]));
+                }
+                set {
+                    this[this._tableFlight_INNERJOIN_FlightBooking.DateOfJourneyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public tbCityRow tbCityRowByDestination_FK21 {
+                get {
+                    return ((tbCityRow)(this.GetParentRow(this.Table.ParentRelations["Destination_FK21"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Destination_FK21"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public tbCityRow tbCityRowBySource_FK11 {
+                get {
+                    return ((tbCityRow)(this.GetParentRow(this.Table.ParentRelations["Source_FK11"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Source_FK11"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAdultFareNull() {
+                return this.IsNull(this._tableFlight_INNERJOIN_FlightBooking.AdultFareColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAdultFareNull() {
+                this[this._tableFlight_INNERJOIN_FlightBooking.AdultFareColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsChildFareNull() {
+                return this.IsNull(this._tableFlight_INNERJOIN_FlightBooking.ChildFareColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetChildFareNull() {
+                this[this._tableFlight_INNERJOIN_FlightBooking.ChildFareColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDepartureTimeNull() {
+                return this.IsNull(this._tableFlight_INNERJOIN_FlightBooking.DepartureTimeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDepartureTimeNull() {
+                this[this._tableFlight_INNERJOIN_FlightBooking.DepartureTimeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsArrivalTimeNull() {
+                return this.IsNull(this._tableFlight_INNERJOIN_FlightBooking.ArrivalTimeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetArrivalTimeNull() {
+                this[this._tableFlight_INNERJOIN_FlightBooking.ArrivalTimeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public tbFlightBookingRow[] GettbFlightBookingRows() {
+                if ((this.Table.ChildRelations["FK_tbFlightBooking_tbFlight1"] == null)) {
+                    return new tbFlightBookingRow[0];
+                }
+                else {
+                    return ((tbFlightBookingRow[])(base.GetChildRows(this.Table.ChildRelations["FK_tbFlightBooking_tbFlight1"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public tbPassengersListRow[] GettbPassengersListRows() {
+                if ((this.Table.ChildRelations["FK_tbPassengersList_tbFlight1"] == null)) {
+                    return new tbPassengersListRow[0];
+                }
+                else {
+                    return ((tbPassengersListRow[])(base.GetChildRows(this.Table.ChildRelations["FK_tbPassengersList_tbFlight1"])));
                 }
             }
         }
@@ -4967,6 +5771,40 @@ namespace MakeMyTrip {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public tbRoomsRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class _Flight_INNERJOIN_FlightBookingRowChangeEvent : global::System.EventArgs {
+            
+            private _Flight_INNERJOIN_FlightBookingRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _Flight_INNERJOIN_FlightBookingRowChangeEvent(_Flight_INNERJOIN_FlightBookingRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _Flight_INNERJOIN_FlightBookingRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -8030,6 +8868,239 @@ namespace MakeMyTrip.DataSet_dbFlightHotelTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string RoomType, int Original_HotelID, int Original_RoomNo) {
             return this.Update(Original_HotelID, Original_RoomNo, RoomType, Original_HotelID, Original_RoomNo);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class Flight_INNERJOIN_FlightBookingTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public Flight_INNERJOIN_FlightBookingTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Flight-INNERJOIN-FlightBooking";
+            tableMapping.ColumnMappings.Add("FlightNo", "FlightNo");
+            tableMapping.ColumnMappings.Add("AirlinesName", "AirlinesName");
+            tableMapping.ColumnMappings.Add("Source", "Source");
+            tableMapping.ColumnMappings.Add("Destination", "Destination");
+            tableMapping.ColumnMappings.Add("TotalSeats", "TotalSeats");
+            tableMapping.ColumnMappings.Add("AdultFare", "AdultFare");
+            tableMapping.ColumnMappings.Add("ChildFare", "ChildFare");
+            tableMapping.ColumnMappings.Add("AirportTax", "AirportTax");
+            tableMapping.ColumnMappings.Add("DepartureTime", "DepartureTime");
+            tableMapping.ColumnMappings.Add("ArrivalTime", "ArrivalTime");
+            tableMapping.ColumnMappings.Add("Expr4", "Expr4");
+            tableMapping.ColumnMappings.Add("DateOfJourney", "DateOfJourney");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["dbFlightHotelConnectionString"].ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT        tbFlight.*, tbFlightBooking.FlightNo AS Expr4, tbFlightBooking.Date" +
+                "OfJourney\r\nFROM            tbFlight INNER JOIN\r\n                         tbFligh" +
+                "tBooking ON tbFlight.FlightNo = tbFlightBooking.FlightNo";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT        tbFlight.FlightNo, tbFlight.AirlinesName, tbFlight.Source, tbFlight.Destination, tbFlight.TotalSeats, tbFlight.AdultFare, tbFlight.ChildFare, tbFlight.AirportTax, 
+                         tbFlight.DepartureTime, tbFlight.ArrivalTime, tbFlightBooking.DateOfJourney
+FROM            tbFlight INNER JOIN
+                         tbFlightBooking ON tbFlight.FlightNo = tbFlightBooking.FlightNo
+WHERE         tbFlightBooking.DateOfJourney = @Date 
+AND ( datediff(hour,@HourStart,   tbFlight.DepartureTime ) >= 0  
+AND datediff(hour, tbFlight.DepartureTime,  @HourEnd) >= 0 )";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfJourney", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HourStart", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HourEnd", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(DataSet_dbFlightHotel._Flight_INNERJOIN_FlightBookingDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual DataSet_dbFlightHotel._Flight_INNERJOIN_FlightBookingDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSet_dbFlightHotel._Flight_INNERJOIN_FlightBookingDataTable dataTable = new DataSet_dbFlightHotel._Flight_INNERJOIN_FlightBookingDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int BuscaVuelos(DataSet_dbFlightHotel._Flight_INNERJOIN_FlightBookingDataTable dataTable, string Date, System.DateTime HourStart, System.DateTime HourEnd) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Date == null)) {
+                throw new global::System.ArgumentNullException("Date");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Date));
+            }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(HourStart));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(HourEnd));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSet_dbFlightHotel._Flight_INNERJOIN_FlightBookingDataTable GetDataBy(string Date, System.DateTime HourStart, System.DateTime HourEnd) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Date == null)) {
+                throw new global::System.ArgumentNullException("Date");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Date));
+            }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(HourStart));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(HourEnd));
+            DataSet_dbFlightHotel._Flight_INNERJOIN_FlightBookingDataTable dataTable = new DataSet_dbFlightHotel._Flight_INNERJOIN_FlightBookingDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
         }
     }
     

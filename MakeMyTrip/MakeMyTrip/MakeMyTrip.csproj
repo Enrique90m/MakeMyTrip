@@ -58,11 +58,43 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
+    <Content Include="wf_DisplayFlight.aspx" />
+    <Content Include="wf_SearchFlight.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSet_dbFlightHotel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_dbFlightHotel.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="wf_DisplayFlight.aspx.cs">
+      <DependentUpon>wf_DisplayFlight.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wf_DisplayFlight.aspx.designer.cs">
+      <DependentUpon>wf_DisplayFlight.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wf_SearchFlight.aspx.cs">
+      <DependentUpon>wf_SearchFlight.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wf_SearchFlight.aspx.designer.cs">
+      <DependentUpon>wf_SearchFlight.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DataSet_dbFlightHotel.xsc">
+      <DependentUpon>DataSet_dbFlightHotel.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet_dbFlightHotel.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_dbFlightHotel.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSet_dbFlightHotel.xss">
+      <DependentUpon>DataSet_dbFlightHotel.xsd</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
