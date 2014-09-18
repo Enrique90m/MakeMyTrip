@@ -59,6 +59,9 @@
   <ItemGroup>
     <Content Include="Web.config" />
     <Content Include="wf_DisplayFlight.aspx" />
+    <Content Include="wf_FlightPayment.aspx" />
+    <Content Include="wf_FlightTravelers.aspx" />
+    <Content Include="wf_ReviewFlight.aspx" />
     <Content Include="wf_SearchFlight.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +70,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet_dbFlightHotel.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ProjectAirlaneDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProjectAirlaneDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="wf_DisplayFlight.aspx.cs">
       <DependentUpon>wf_DisplayFlight.aspx</DependentUpon>
@@ -74,6 +82,27 @@
     </Compile>
     <Compile Include="wf_DisplayFlight.aspx.designer.cs">
       <DependentUpon>wf_DisplayFlight.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wf_FlightPayment.aspx.cs">
+      <DependentUpon>wf_FlightPayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wf_FlightPayment.aspx.designer.cs">
+      <DependentUpon>wf_FlightPayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wf_FlightTravelers.aspx.cs">
+      <DependentUpon>wf_FlightTravelers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wf_FlightTravelers.aspx.designer.cs">
+      <DependentUpon>wf_FlightTravelers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wf_ReviewFlight.aspx.cs">
+      <DependentUpon>wf_ReviewFlight.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wf_ReviewFlight.aspx.designer.cs">
+      <DependentUpon>wf_ReviewFlight.aspx</DependentUpon>
     </Compile>
     <Compile Include="wf_SearchFlight.aspx.cs">
       <DependentUpon>wf_SearchFlight.aspx</DependentUpon>
@@ -94,6 +123,17 @@
     </None>
     <Content Include="DataSet_dbFlightHotel.xss">
       <DependentUpon>DataSet_dbFlightHotel.xsd</DependentUpon>
+    </Content>
+    <Content Include="ProjectAirlaneDataSet.xsc">
+      <DependentUpon>ProjectAirlaneDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="ProjectAirlaneDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProjectAirlaneDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="ProjectAirlaneDataSet.xss">
+      <DependentUpon>ProjectAirlaneDataSet.xsd</DependentUpon>
     </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

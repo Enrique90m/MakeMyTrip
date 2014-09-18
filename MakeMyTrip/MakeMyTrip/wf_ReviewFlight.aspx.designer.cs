@@ -310,12 +310,12 @@ namespace MakeMyTrip {
         protected global::System.Web.UI.WebControls.Label Label_GrandTotal;
         
         /// <summary>
-        /// Panel1 control.
+        /// Button_BookThisFlight control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.WebControls.Button Button_BookThisFlight;
     }
 }

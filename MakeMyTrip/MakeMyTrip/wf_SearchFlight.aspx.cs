@@ -23,12 +23,15 @@ namespace MakeMyTrip
             //Creo URL con datos para el siguiente formulario
             Response.Redirect("wf_DisplayFlight.aspx?CustomerID=" + DropDownList_CustomerID.SelectedValue +
                                 "&Source=" + DropDownList_Source.SelectedValue +
-                                "&Destination=" + DropDownList_Source.SelectedValue + 
+                                "&Destination=" + DropDownList_Destination.SelectedValue + 
                                 "&StartHour=" + DropDownList_StartHour.SelectedValue + 
                                 "&EndHour=" + DropDownList_EndHour.SelectedValue + 
                                 "&DepartureDate=" + Calendar_DepartureDate.SelectedDate + 
                                 "&NoOfAdults=" + DropDownList_NoOfAdults.SelectedValue + 
-                                "&NoOfChildren=" + DropDownList_NoOfChildren.SelectedValue);
+                                "&NoOfChildren=" + DropDownList_NoOfChildren.SelectedValue + 
+                                "&Day="+Calendar_DepartureDate.SelectedDate.Day +
+                                "&Month=" + Calendar_DepartureDate.SelectedDate.Month +
+                                "&Year=" + Calendar_DepartureDate.SelectedDate.Year);
         }
 
         protected void DropDownList_StartHour_SelectedIndexChanged(object sender, EventArgs e)

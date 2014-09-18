@@ -16,7 +16,7 @@
             <asp:Label ID="Label2" runat="server" style="z-index: 1; left: 253px; top: 74px; position: absolute" Text="Source"></asp:Label>
             <asp:DropDownList ID="DropDownList_CustomerID" runat="server" style="z-index: 1; top: 30px; position: absolute; left: 458px" DataSourceID="SqlDataSource_ClientID" DataTextField="CustomerID" DataValueField="CustomerID">
             </asp:DropDownList>
-            <asp:SqlDataSource ID="SqlDataSource_ClientID" runat="server" ConnectionString="<%$ ConnectionStrings:dbFlightHotelConnectionString %>" SelectCommand="SELECT [CustomerID] FROM [tbCustomer]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource_ClientID" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectAirlineConnectionString %>" SelectCommand="SELECT [CustomerId] FROM [Customer]"></asp:SqlDataSource>
             <asp:DropDownList ID="DropDownList_StartHour" runat="server" style="z-index: 1; left: 350px; top: 103px; position: absolute" AutoPostBack="True" OnSelectedIndexChanged="DropDownList_StartHour_SelectedIndexChanged">
                 <asp:ListItem>0</asp:ListItem>
                 <asp:ListItem>1</asp:ListItem>
@@ -47,7 +47,7 @@
             </asp:DropDownList>
             <asp:DropDownList ID="DropDownList_Source" runat="server" style="z-index: 1; left: 308px; top: 71px; position: absolute; " DataSourceID="SqlDataSource_CitySource" DataTextField="CityName" DataValueField="CityCode" AutoPostBack="True">
             </asp:DropDownList>
-            <asp:SqlDataSource ID="SqlDataSource_CitySource" runat="server" ConnectionString="<%$ ConnectionStrings:dbFlightHotelConnectionString %>" SelectCommand="SELECT [CityCode], [CityName] FROM [tbCity]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource_CitySource" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectAirlineConnectionString %>" SelectCommand="SELECT [CityCode], [CityName] FROM [City]"></asp:SqlDataSource>
         </p>
         <asp:Label ID="Label3" runat="server" style="z-index: 1; left: 464px; top: 71px; position: absolute; right: 436px" Text="Destination"></asp:Label>
         <asp:DropDownList ID="DropDownList_NoOfAdults" runat="server" style="z-index: 1; left: 372px; top: 335px; position: absolute; right: 518px">
@@ -65,7 +65,7 @@
         </asp:DropDownList>
         <asp:DropDownList ID="DropDownList_Destination" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource_Destination" DataTextField="CityName" DataValueField="CityCode" style="z-index: 1; left: 543px; top: 68px; position: absolute">
         </asp:DropDownList>
-        <asp:SqlDataSource ID="SqlDataSource_Destination" runat="server" ConnectionString="<%$ ConnectionStrings:dbFlightHotelConnectionString %>" SelectCommand="SELECT [CityCode], [CityName] FROM [tbCity]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource_Destination" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectAirlineConnectionString %>" SelectCommand="SELECT [CityCode], [CityName] FROM [City]"></asp:SqlDataSource>
         <p>
             <asp:Label ID="Label4" runat="server" style="z-index: 1; left: 311px; top: 107px; position: absolute" Text="From "></asp:Label>
             <asp:Label ID="Label5" runat="server" style="z-index: 1; left: 465px; top: 104px; position: absolute" Text="To"></asp:Label>

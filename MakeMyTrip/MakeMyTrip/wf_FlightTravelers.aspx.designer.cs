@@ -10,7 +10,7 @@
 namespace MakeMyTrip {
     
     
-    public partial class wf_DisplayFlight {
+    public partial class wf_FlightTravelers {
         
         /// <summary>
         /// form1 control.
@@ -22,13 +22,13 @@ namespace MakeMyTrip {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Label_From control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_From;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
         /// Label2 control.
@@ -58,13 +58,13 @@ namespace MakeMyTrip {
         protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
-        /// Label_NoOfAfdults control.
+        /// Label5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_NoOfAfdults;
+        protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
         /// Label6 control.
@@ -76,13 +76,13 @@ namespace MakeMyTrip {
         protected global::System.Web.UI.WebControls.Label Label6;
         
         /// <summary>
-        /// Label_NoOfChildren control.
+        /// Label7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_NoOfChildren;
+        protected global::System.Web.UI.WebControls.Label Label7;
         
         /// <summary>
         /// Label8 control.
@@ -94,22 +94,22 @@ namespace MakeMyTrip {
         protected global::System.Web.UI.WebControls.Label Label8;
         
         /// <summary>
-        /// Label_DepartureDate control.
+        /// Label9 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_DepartureDate;
+        protected global::System.Web.UI.WebControls.Label Label9;
         
         /// <summary>
-        /// Label_TimeEnd control.
+        /// Label10 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_TimeEnd;
+        protected global::System.Web.UI.WebControls.Label Label10;
         
         /// <summary>
         /// Label11 control.
@@ -121,57 +121,39 @@ namespace MakeMyTrip {
         protected global::System.Web.UI.WebControls.Label Label11;
         
         /// <summary>
-        /// Label_To control.
+        /// Label12 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_To;
+        protected global::System.Web.UI.WebControls.Label Label12;
         
         /// <summary>
-        /// Label13 control.
+        /// TextBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label13;
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
         
         /// <summary>
-        /// Label_TimeStart control.
+        /// TextBox2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_TimeStart;
+        protected global::System.Web.UI.WebControls.TextBox TextBox2;
         
         /// <summary>
-        /// Label15 control.
+        /// TextBox3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label15;
-        
-        /// <summary>
-        /// GridView_VuelosDisponibles control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView_VuelosDisponibles;
-        
-        /// <summary>
-        /// Label_NoRecordsFound control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_NoRecordsFound;
+        protected global::System.Web.UI.WebControls.TextBox TextBox3;
     }
 }

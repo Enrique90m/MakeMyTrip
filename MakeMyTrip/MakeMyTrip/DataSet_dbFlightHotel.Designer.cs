@@ -9017,7 +9017,7 @@ namespace MakeMyTrip.DataSet_dbFlightHotelTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        tbFlight.*, tbFlightBooking.FlightNo AS Expr4, tbFlightBooking.Date" +
@@ -9031,12 +9031,26 @@ namespace MakeMyTrip.DataSet_dbFlightHotelTableAdapters {
 FROM            tbFlight INNER JOIN
                          tbFlightBooking ON tbFlight.FlightNo = tbFlightBooking.FlightNo
 WHERE         tbFlightBooking.DateOfJourney = @Date 
+AND             tbFlight.Source = @Source
+AND             tbFlight.Destination = @Destination
 AND ( datediff(hour,@HourStart,   tbFlight.DepartureTime ) >= 0  
 AND datediff(hour, tbFlight.DepartureTime,  @HourEnd) >= 0 )";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfJourney", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Source", global::System.Data.SqlDbType.VarChar, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Source", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Destination", global::System.Data.SqlDbType.VarChar, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Destination", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HourStart", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HourEnd", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"SELECT        tbFlight.FlightNo, tbFlight.AirlinesName, tbFlight.Source, tbFlight.Destination, tbFlight.TotalSeats, tbFlight.AdultFare, tbFlight.ChildFare, tbFlight.AirportTax, 
+                         tbFlight.DepartureTime, tbFlight.ArrivalTime, tbFlightBooking.DateOfJourney
+FROM            tbFlight INNER JOIN
+                         tbFlightBooking ON tbFlight.FlightNo = tbFlightBooking.FlightNo
+WHERE         tbFlightBooking.DateOfJourney = @Date 
+";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfJourney", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9067,7 +9081,7 @@ AND datediff(hour, tbFlight.DepartureTime,  @HourEnd) >= 0 )";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int BuscaVuelos(DataSet_dbFlightHotel._Flight_INNERJOIN_FlightBookingDataTable dataTable, string Date, System.DateTime HourStart, System.DateTime HourEnd) {
+        public virtual int BuscaVuelos(DataSet_dbFlightHotel._Flight_INNERJOIN_FlightBookingDataTable dataTable, string Date, string Source, string Destination, System.DateTime HourStart, System.DateTime HourEnd) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((Date == null)) {
                 throw new global::System.ArgumentNullException("Date");
@@ -9075,8 +9089,20 @@ AND datediff(hour, tbFlight.DepartureTime,  @HourEnd) >= 0 )";
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Date));
             }
-            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(HourStart));
-            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(HourEnd));
+            if ((Source == null)) {
+                throw new global::System.ArgumentNullException("Source");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(Source));
+            }
+            if ((Destination == null)) {
+                throw new global::System.ArgumentNullException("Destination");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(Destination));
+            }
+            this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(HourStart));
+            this.Adapter.SelectCommand.Parameters[4].Value = ((System.DateTime)(HourEnd));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -9088,7 +9114,7 @@ AND datediff(hour, tbFlight.DepartureTime,  @HourEnd) >= 0 )";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual DataSet_dbFlightHotel._Flight_INNERJOIN_FlightBookingDataTable GetDataBy(string Date, System.DateTime HourStart, System.DateTime HourEnd) {
+        public virtual DataSet_dbFlightHotel._Flight_INNERJOIN_FlightBookingDataTable GetDataBy(string Date, string Source, string Destination, System.DateTime HourStart, System.DateTime HourEnd) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((Date == null)) {
                 throw new global::System.ArgumentNullException("Date");
@@ -9096,8 +9122,56 @@ AND datediff(hour, tbFlight.DepartureTime,  @HourEnd) >= 0 )";
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Date));
             }
-            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(HourStart));
-            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(HourEnd));
+            if ((Source == null)) {
+                throw new global::System.ArgumentNullException("Source");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(Source));
+            }
+            if ((Destination == null)) {
+                throw new global::System.ArgumentNullException("Destination");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(Destination));
+            }
+            this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(HourStart));
+            this.Adapter.SelectCommand.Parameters[4].Value = ((System.DateTime)(HourEnd));
+            DataSet_dbFlightHotel._Flight_INNERJOIN_FlightBookingDataTable dataTable = new DataSet_dbFlightHotel._Flight_INNERJOIN_FlightBookingDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(DataSet_dbFlightHotel._Flight_INNERJOIN_FlightBookingDataTable dataTable, string Date) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((Date == null)) {
+                throw new global::System.ArgumentNullException("Date");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Date));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSet_dbFlightHotel._Flight_INNERJOIN_FlightBookingDataTable RegresaDTVuelos(string Date) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((Date == null)) {
+                throw new global::System.ArgumentNullException("Date");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Date));
+            }
             DataSet_dbFlightHotel._Flight_INNERJOIN_FlightBookingDataTable dataTable = new DataSet_dbFlightHotel._Flight_INNERJOIN_FlightBookingDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
