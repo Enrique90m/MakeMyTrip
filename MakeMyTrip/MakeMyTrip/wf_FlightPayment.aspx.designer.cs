@@ -76,13 +76,13 @@ namespace MakeMyTrip {
         protected global::System.Web.UI.WebControls.Label Label6;
         
         /// <summary>
-        /// Source control.
+        /// Label_Source control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Source;
+        protected global::System.Web.UI.WebControls.Label Label_Source;
         
         /// <summary>
         /// Label_TotalAdultFare control.
@@ -164,5 +164,32 @@ namespace MakeMyTrip {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label16;
+        
+        /// <summary>
+        /// Button_MakePayment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button_MakePayment;
+        
+        /// <summary>
+        /// Button_Cancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button_Cancel;
+        
+        /// <summary>
+        /// Button_BookHotel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button_BookHotel;
     }
 }

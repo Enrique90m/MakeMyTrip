@@ -58,15 +58,6 @@ namespace MakeMyTrip {
         protected global::System.Web.UI.WebControls.DropDownList DropDownList_CustomerID;
         
         /// <summary>
-        /// SqlDataSource_ClientID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource_ClientID;
-        
-        /// <summary>
         /// DropDownList_StartHour control.
         /// </summary>
         /// <remarks>
@@ -148,6 +139,15 @@ namespace MakeMyTrip {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource_Destination;
         
         /// <summary>
+        /// SqlDataSource_ClientID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource_ClientID;
+        
+        /// <summary>
         /// Label4 control.
         /// </summary>
         /// <remarks>
@@ -182,24 +182,6 @@ namespace MakeMyTrip {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label6;
-        
-        /// <summary>
-        /// Label7 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label7;
-        
-        /// <summary>
-        /// Label8 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label8;
         
         /// <summary>
         /// Button_SearchFlights control.

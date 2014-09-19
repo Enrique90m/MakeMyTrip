@@ -11,7 +11,9 @@ namespace MakeMyTrip
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Calendar_DepartureDate.SelectedDate = DateTime.Now;
+            for (int i = 1; i <= 23; i++)
+                DropDownList_EndHour.Items.Add(i.ToString());
         }
 
         protected void Button_SearchFlights_Click(object sender, EventArgs e)
@@ -36,9 +38,11 @@ namespace MakeMyTrip
 
         protected void DropDownList_StartHour_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Si no selecciono nada, lo deshabilito
-            if ( int.Parse(DropDownList_StartHour.SelectedValue) == -1)
+            //Si no selecciono nada, lo deshabilito y agrego que puede escojer de la 1 a las 23, ya que el primer combo esta en 0
+            if (int.Parse(DropDownList_StartHour.SelectedValue) == -1)
+            {
                 DropDownList_EndHour.Enabled = false;
+            }
             else
             {
                 //Habilito el combo y dependiendo de lo que halla seleccionado, agrego las horas siguientes
@@ -51,6 +55,12 @@ namespace MakeMyTrip
                     for (int i = int.Parse(DropDownList_StartHour.SelectedValue) + 1; i < 24; i++)
                         DropDownList_EndHour.Items.Add(i.ToString());
             }
+        }
+
+        protected void Calendar_DepartureDate_DayRender(object sender, DayRenderEventArgs e)
+        {
+                if (e.Day.Date < DateTime.Now)
+                    e.Day.IsSelectable = false;
         }
     }
 }

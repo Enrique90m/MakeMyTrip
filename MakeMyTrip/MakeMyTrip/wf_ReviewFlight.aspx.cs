@@ -64,7 +64,9 @@ namespace MakeMyTrip
             Response.Cookies["Totals"]["TotalAdult"] = dTotalAdult.ToString();
             Response.Cookies["Totals"]["TotalChildren"] = dTotalChildren.ToString();
             Response.Cookies["Totals"]["GrandTotal"] = dGrandTotal.ToString();
-
+            Response.Cookies["Totals"].Expires = DateTime.Now.AddHours(1);
+            Response.Cookies["Indice"]["Indice"] = "0";
+            Response.Cookies["Indice"].Expires = DateTime.Now.AddHours(1);
             //Muevo el usuario a la siguiente pagina
             Response.Redirect("wf_FlightTravelers.aspx");
         }

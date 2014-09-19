@@ -84,20 +84,21 @@ namespace MakeMyTrip
             //Guardo informacion en cookies
             Response.Cookies["DatosVuelo"]["Source"] = sSource;
             Response.Cookies["DatosVuelo"]["Destination"] = sDestination;
+
             Response.Cookies["DatosVuelo"]["StartHour"] = iStartHour.ToString();
             Response.Cookies["DatosVuelo"]["EndHour"] = iEndHour.ToString();
             Response.Cookies["DatosVuelo"]["Month"] = iMonth.ToString();
             Response.Cookies["DatosVuelo"]["Year"] = iYear.ToString();
+            Response.Cookies["DatosVuelo"]["Day"] = iDay.ToString();
+            
             Response.Cookies["DatosVuelo"]["NoOfAdults"] = iNoOfAdults.ToString();
             Response.Cookies["DatosVuelo"]["NoOfChildren"] = iNoOfChildren.ToString();
             Response.Cookies["DatosVuelo"]["FlightNo"] = GridView_VuelosDisponibles.Rows[e.RowIndex].Cells[1].Text;
             Response.Cookies["DatosVuelo"]["AdultFare"] = GridView_VuelosDisponibles.Rows[e.RowIndex].Cells[6].Text;
-            Response.Cookies["DatosVuelo"]["ChildFare"] = GridView_VuelosDisponibles.Rows[e.RowIndex].Cells[7].Text;
+            Response.Cookies["DatosVuelo"]["ChildrenFare"] = GridView_VuelosDisponibles.Rows[e.RowIndex].Cells[7].Text;
             Response.Cookies["DatosVuelo"]["TotalPassenger"] = GridView_VuelosDisponibles.Rows[e.RowIndex].Cells[8].Text;
             //Response.Cookies["DatosVuelo"]["Airlane"] = GridView_VuelosDisponibles.Rows[e.RowIndex].Cells[9].ToString();
             Response.Cookies["DatosVuelo"]["Arrival"] = GridView_VuelosDisponibles.Rows[e.RowIndex].Cells[5].Text;
-            Response.Cookies["DatosVuelo"]["AdultsFare"] = GridView_VuelosDisponibles.Rows[e.RowIndex].Cells[7].Text;
-            Response.Cookies["DatosVuelo"]["ChildrenFare"] = GridView_VuelosDisponibles.Rows[e.RowIndex].Cells[8].Text;
             Response.Cookies["DatosVuelo"]["Departure"] = Label_DepartureDate.Text;
             Response.Cookies["DatosVuelo"]["CustomerID"] = Request.QueryString["CustomerID"];
             Response.Cookies["DatosVuelo"].Expires = DateTime.Now.AddHours(1);
