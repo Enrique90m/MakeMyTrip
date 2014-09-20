@@ -40,9 +40,7 @@ namespace MakeMyTrip
         {
             //Si no selecciono nada, lo deshabilito y agrego que puede escojer de la 1 a las 23, ya que el primer combo esta en 0
             if (int.Parse(DropDownList_StartHour.SelectedValue) == -1)
-            {
                 DropDownList_EndHour.Enabled = false;
-            }
             else
             {
                 //Habilito el combo y dependiendo de lo que halla seleccionado, agrego las horas siguientes

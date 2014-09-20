@@ -68,7 +68,9 @@ namespace MakeMyTrip
             ProjectAirlaneDataSetTableAdapters.PassengerDetailsTableAdapter tableAdapterPassenger = new ProjectAirlaneDataSetTableAdapters.PassengerDetailsTableAdapter();
             
             //Inserto adultos
-            int i;
+            int i=0;
+            string algo =  Request.Cookies["PassengerAdults"][i.ToString()].ToString();
+
             for ( i = 0; i < int.Parse(Request.Cookies["DatosVuelo"]["NoOfAdults"]); i++)
                 tableAdapterPassenger.Insert(int.Parse(Request.Cookies["DatosVuelo"]["CustomerID"]),
                                              int.Parse(Request.Cookies["DatosVuelo"]["FlightNo"]),
@@ -78,6 +80,7 @@ namespace MakeMyTrip
                                              Request.Cookies["PassengerAdults"][i.ToString()].Split('*')[2].ToString());
 
             //Inserto ninos 
+            algo = Request.Cookies["PassengerChildren"]["1"].ToString();
             for (int r = i; r <= int.Parse(Request.Cookies["DatosVuelo"]["NoOfChildren"]); r++)
                 tableAdapterPassenger.Insert(int.Parse(Request.Cookies["DatosVuelo"]["CustomerID"]),
                                              int.Parse(Request.Cookies["DatosVuelo"]["FlightNo"]),
